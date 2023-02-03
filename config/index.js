@@ -35,7 +35,10 @@ module.exports = (app) => {
   app.use(
     cors({
       credentials: true,
-      origin: process.env.ORIGIN || "https://footicket.onrender.com/",
+      origin:
+        process.env.ORIGIN ||
+        "https://footicket.onrender.com/" ||
+        "https://footicket-api.onrender.com/",
     })
   );
 
