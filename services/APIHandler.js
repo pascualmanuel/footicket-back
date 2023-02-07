@@ -15,8 +15,8 @@ class APIHandler {
   getNextMatches = (leagueId, matchesNumber) =>
     this.axiosApp.get(`fixtures?league=${leagueId}&next=${matchesNumber}`);
 
-  getPositions = (leagueId, year) =>
-    this.axiosApp.get(`standings?league=${leagueId}&season=${year}`);
+  getPositions = (leagueId) =>
+    this.axiosApp.get(`standings?league=${leagueId}`);
 
   getLeagues = (country) =>
     this.axiosApp.get(`leagues?country=${country}&type=league`);

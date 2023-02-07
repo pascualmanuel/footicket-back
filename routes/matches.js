@@ -126,21 +126,20 @@ router.get("/standings/:country", (req, res) => {
   const { country } = req.params;
 
   const leagueMapper = {
-    spain: 140,
-    argentina: 128,
-    england: 39,
-    italy: 135,
-    france: 61,
-    germany: 78,
-    brazil: 71,
-    mexico: 262,
-    uruguay: 268,
+    spain: "140&season=2022",
+    argentina: "128&season=2023",
+    england: "39&season=2022",
+    italy: "135&season=2022",
+    france: "61&season=2022",
+    germany: "78&season=2022",
+    brazil: "71&season=2023",
+    mexico: "262&season=2022",
+    uruguay: "268&season=2023",
   };
 
   let leagueId = leagueMapper[country];
-  const year = 2022;
 
-  const positionResponse = API.getPositions(leagueId, year);
+  const positionResponse = API.getPositions(leagueId);
 
   Promise.all([positionResponse])
     .then((data) => {
