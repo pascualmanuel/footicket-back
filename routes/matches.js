@@ -30,7 +30,7 @@ router.get("/get-matches", (req, res) => {
     })
     .then((allMatches) => {
       console.log(allMatches);
-      res.json({allMatches, dbInfo});
+      res.json({ allMatches, dbInfo });
     })
     .catch((err) => console.log(err));
 });
@@ -38,10 +38,11 @@ router.get("/get-matches", (req, res) => {
 ///Copiado ya de todofutbol...
 
 router.get("/league/:country", (req, res, next) => {
-  const {country} = req.params;
+  const { country } = req.params;
 
   const leagueMapper = {
     wc: 1,
+    champions: 2,
     spain: 140,
     argentina: 128,
     england: 39,
@@ -71,7 +72,7 @@ router.get("/league/:country", (req, res, next) => {
 });
 
 router.get("/next-matches/:country", (req, res, next) => {
-  const {country} = req.params;
+  const { country } = req.params;
 
   const leagueMapper = {
     spain: 140,
@@ -122,7 +123,7 @@ router.get("/next-matches/:country", (req, res, next) => {
 //////////////////////
 
 router.get("/standings/:country", (req, res) => {
-  const {country} = req.params;
+  const { country } = req.params;
 
   const leagueMapper = {
     spain: 140,
@@ -152,7 +153,7 @@ router.get("/standings/:country", (req, res) => {
 /////
 
 router.get("/league-info/", (req, res) => {
-  const {country} = req.params;
+  const { country } = req.params;
 
   const leagueMapper = {
     spain: 140,
@@ -173,17 +174,17 @@ router.get("/league-info/", (req, res) => {
 
 ///
 router.get("/match/:id", (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
 
   Match.findById(id)
     .then((matchDetails) => res.json(matchDetails))
     .catch((err) =>
-      res.json({err, errMessage: "Problema buscando un Match de tinder"})
+      res.json({ err, errMessage: "Problema buscando un Match de tinder" })
     );
 });
 
 router.get("/team/:name", (req, res) => {
-  const {name} = req.params;
+  const { name } = req.params;
   const teamsAPI = new APIHandler();
 
   teamsAPI
@@ -194,7 +195,7 @@ router.get("/team/:name", (req, res) => {
 
 //////
 router.get("/team/matches/:id", (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   const teamsAPI = new APIHandler();
 
   teamsAPI
@@ -206,7 +207,7 @@ router.get("/team/matches/:id", (req, res) => {
 ///////////////////////////////////////////////
 
 router.get("/team-info/:name", (req, res) => {
-  const {name} = req.params;
+  const { name } = req.params;
   console.log("yo soy el name: ", name);
   const teamsAPI = new APIHandler();
 
@@ -220,7 +221,7 @@ router.get("/team-info/:name", (req, res) => {
 
 router.post("/checkout", async (req, res) => {
   try {
-    const {id, amount} = req.body;
+    const { id, amount } = req.body;
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: "EUR",
@@ -231,12 +232,12 @@ router.post("/checkout", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json({message: err});
+    res.json({ message: err });
   }
 });
 
 router.get("/get-match-info/:matchId", (req, res) => {
-  const {matchId} = req.params;
+  const { matchId } = req.params;
 
   API.getMatchInfo(Number(matchId))
     .then((response) => res.json(response.data))

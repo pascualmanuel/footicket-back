@@ -38,7 +38,8 @@ module.exports = (app) => {
       origin:
         process.env.ORIGIN ||
         "https://footicket.onrender.com/" ||
-        "https://footicket-api.onrender.com/",
+        "https://footicket-api.onrender.com/" ||
+        "http://localhost:3000",
     })
   );
 
