@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd505420.css",
-    "main.js": "/static/js/main.be3453a4.js",
+    "main.css": "/static/css/main.d6eaa33a.css",
+    "main.js": "/static/js/main.cde3adf7.js",
     "static/js/787.44e022fc.chunk.js": "/static/js/787.44e022fc.chunk.js",
     "static/media/background.jpeg": "/static/media/background.4f1213a1fb33ccaab92f.jpeg",
     "static/media/mastercard.png": "/static/media/mastercard.98e6700b574df33e2798.png",
@@ -9,12 +9,12 @@
     "static/media/visa.png": "/static/media/visa.8cfb69c03e56b125b1be.png",
     "static/media/ft-logo.png": "/static/media/ft-logo.0e4fff4196d2f44dc3ba.png",
     "index.html": "/index.html",
-    "main.cd505420.css.map": "/static/css/main.cd505420.css.map",
-    "main.be3453a4.js.map": "/static/js/main.be3453a4.js.map",
+    "main.d6eaa33a.css.map": "/static/css/main.d6eaa33a.css.map",
+    "main.cde3adf7.js.map": "/static/js/main.cde3adf7.js.map",
     "787.44e022fc.chunk.js.map": "/static/js/787.44e022fc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd505420.css",
-    "static/js/main.be3453a4.js"
+    "static/css/main.d6eaa33a.css",
+    "static/js/main.cde3adf7.js"
   ]
 }

@@ -8,11 +8,6 @@ const stripe = new Stripe(
   "sk_test_51K6CRIH1ByOTHJYIhKQvZj6tcqIVHPvbxdYFsZK3AdkM58qPTqVHVwDkgXlHC6YU83SbtAGmEoEMOKWdJw2LB9F9002TJHvtbA"
 );
 
-// app.use(function (err, req, res, next) {
-//   res.status(err.status || 500);
-//   res.send(err);
-// });
-
 router.get("/get-matches", (req, res) => {
   let dbInfo = [];
 
@@ -86,18 +81,6 @@ router.get("/next-matches/:country", (req, res, next) => {
     uruguay: 268,
   };
 
-  // let curr = new Date(); // get current date
-  // let first = curr.getDate() - curr.getDay() + 4; // First day is the day of the month - the day of the week
-  // let last = first + 5; // last day is the first day + 6
-
-  // let thursday = new Date(curr.setDate(first));
-  // let tuesday = new Date(curr.setDate(last));
-
-  // const firstDay = format(thursday, "yyyy-MM-dd");
-  // const lastDay = format(tuesday, "yyyy-MM-dd");
-  // console.log("firstDay", firstDay);
-  // console.log("lastDay", lastDay);
-
   let leagueId = leagueMapper[country];
   const year = 2021;
   const matchesNumber = 10;
@@ -114,11 +97,33 @@ router.get("/next-matches/:country", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-///||||Copiado ya de todofutbol lo de arriba.
+// let curr = new Date(); // get current date
+// let first = curr.getDate() - curr.getDay() + 4; // First day is the day of the month - the day of the week
+// let last = first + 5; // last day is the first day + 6
 
-//liveFootball
+// let thursday = new Date(curr.setDate(first));
+// let tuesday = new Date(curr.setDate(last));
 
-// https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all
+// const firstDay = format(thursday, "yyyy-MM-dd");
+// const lastDay = format(tuesday, "yyyy-MM-dd");
+// console.log("firstDay", firstDay);
+// console.log("lastDay", lastDay);
+
+///||||get next match
+
+router.get("/next-match/:teamId", (req, res, next) => {
+  const { teamId } = req.params;
+
+  const matchesResponse = API.getNextMatch(teamId);
+
+  Promise.all([matchesResponse])
+    .then((data) => {
+      const [matchesResponse] = data;
+      const matches = matchesResponse.data.response;
+      res.json(matches);
+    })
+    .catch((err) => console.log(err));
+});
 
 //////////////////////
 

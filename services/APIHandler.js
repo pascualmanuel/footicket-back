@@ -12,6 +12,9 @@ class APIHandler {
     });
   }
 
+  getNextMatch = (teamId) =>
+    this.axiosApp.get(`fixtures?team=${teamId}&next=1`);
+
   getNextMatches = (leagueId, matchesNumber) =>
     this.axiosApp.get(`fixtures?league=${leagueId}&next=${matchesNumber}`);
 
